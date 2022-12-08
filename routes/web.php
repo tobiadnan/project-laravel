@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\DashboardController;
 use App\Models\Blog;
 use Faker\Provider\Lorem;
 use Illuminate\Support\Facades\Route;
@@ -66,3 +67,5 @@ Route::post('/registration', [RegistrationController::class, 'store']);
 
 // route login
 Route::post('/login', [LoginController::class, 'authenticate']);
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
