@@ -10,16 +10,16 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegistrationController;
 
 Route::get('/', function () {
-    return view('home',[
+    return view('home', [
         "title" => "home",
-        'active'=>'home'
+        'active' => 'home'
     ]);
 });
 
 Route::get('/about', function () {
-    return view('about',[
+    return view('about', [
         "title" => "about",
-        "active"=>"about",
+        "active" => "about",
         "name" => "Toby",
         "email" => "thobisaha@gmail.com",
         "img" => "tobi.jpg"
@@ -28,33 +28,41 @@ Route::get('/about', function () {
 
 
 Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('blog',[
+    return view('blog', [
         "title" => "Post by Category : $category->name",
-        "active"=>'category',
-        "post" => $category->blog->load('category','user')
+        "active" => 'category',
+        "post" => $category->blog->load('category', 'user')
     ]);
 });
 
 Route::get('/authors/{user}', function (User $user) {
-    return view('blog',[
+    return view('blog', [
         "title" => 'Post by User : $user->name',
-        "active"=>'category',
-        "post" => $user->blog->load('category','user')
+        "active" => 'category',
+        "post" => $user->blog->load('category', 'user')
     ]);
 });
 
 Route::get('/categories', function () {
-    return view('allcategories',[
+    return view('allcategories', [
         "title" => 'All Categories',
-        "active"=>'category',
+        "active" => 'category',
         "categories" => category::all()
     ]);
 });
 
 Route::get('/blog', [BlogController::class, 'index']);
 
-Route::get('blog/{post:slug}', [BlogController::class,'showPost']);
+Route::get('blog/{post:slug}', [BlogController::class, 'showPost']);
 
-Route::get('/login',[LoginController::class, 'index']);
+// route for login
+Route::get('/login', [LoginController::class, 'index']);
 
-Route::get('/registrasi',[RegistrationController::class, 'index']);
+// route for registration
+Route::get('/registrasi', [RegistrationController::class, 'index']);
+
+// route for sending registration data
+Route::post('/registration', [RegistrationController::class, 'store']);
+
+// route login
+Route::post('/login', [LoginController::class, 'authenticate']);
