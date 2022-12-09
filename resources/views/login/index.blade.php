@@ -16,25 +16,30 @@
         @endif
 
         <main class="form-signin">
-            
             <h1 class="h3 mb-3 fw-normal text-center">Login Form</h1>
-            <form action="/login" method="post">
+            <form action="/login" method="POST">
                 @csrf
                 <div class="form-floating">
 
                     <input type="email" id="email" name="email" placeholder="name@example.com" class="form-control @error('email') is-invalid @enderror" required autofocus value="{{ old('email') }}">
-                    <label for="floatingInput">Email Address</label>
+                    <label for="email">Email Address</label>
+
+                    @error('email')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
 
                 <div class="form-floating">
-                    <input type="password" id="floatingPassword" placeholder="password" class="form-control" required>
-                    <label for="floatingPassword">Password</label>
+                    <input type="password" name="password" id="password" placeholder="password" class="form-control" required>
+                    <label for="password">Password</label>
                 </div>
 
                 <button class="w-100 btn btn-lg btn-danger" type="submit">Login</button>
             </form>
 
-            <small class="d-block text-center mt-3">Belum punya akun ? <a href="/registrasi">Registrasi sekarang
+            <small class="d-block text-center mt-3">Belum punya akun ? <a href="/registration">Registrasi sekarang
                     !!</a></small>
         </main>
     </div>

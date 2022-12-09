@@ -25,6 +25,6 @@ class LoginController extends Controller
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');
         }
-        return back()->with('loginError', 'Login Gagal');
+        return back()->with('loginError', 'Failed to login. Please check your username and password again');
     }
 }

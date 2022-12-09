@@ -60,12 +60,12 @@ Route::get('blog/{post:slug}', [BlogController::class, 'showPost']);
 Route::get('/login', [LoginController::class, 'index']);
 
 // route for registration
-Route::get('/registrasi', [RegistrationController::class, 'index']);
-
-// route for sending registration data
-Route::post('/registration', [RegistrationController::class, 'store']);
+Route::get('/registration', [RegistrationController::class, 'index']);
 
 // route login
 Route::post('/login', [LoginController::class, 'authenticate']);
+
+// route for sending registration data
+Route::post('/registration', [RegistrationController::class, 'store']);
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
