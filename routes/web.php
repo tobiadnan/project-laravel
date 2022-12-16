@@ -57,15 +57,18 @@ Route::get('/blog', [BlogController::class, 'index']);
 Route::get('blog/{post:slug}', [BlogController::class, 'showPost']);
 
 // route for login
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
 
 // route for registration
-Route::get('/registration', [RegistrationController::class, 'index']);
+Route::get('/registration', [RegistrationController::class, 'index'])->middleware('guest');
 
 // route login
 Route::post('/login', [LoginController::class, 'authenticate']);
 
+//route logout
+Route::post('/logout', [LoginController::class, 'logout']);
+
 // route for sending registration data
 Route::post('/registration', [RegistrationController::class, 'store']);
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');

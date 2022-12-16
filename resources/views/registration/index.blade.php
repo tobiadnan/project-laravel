@@ -11,7 +11,7 @@
                     <label for="name">Name</label>
 
                         @error('name')
-                            <div class="ivalid-feedback">
+                            <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                         @enderror
@@ -21,17 +21,17 @@
                     <input type="email" name="email" id="email" placeholder="name@example.com" class="form-control @error('email') is-invalid @enderror" required value="{{ old('email') }}">
                     <label for="email">Email Address</label>
                         @error('email')
-                            <div class="ivalid-feedback">
+                            <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                         @enderror
                 </div>
 
                 <div class="form-floating">
-                    <input type="password" id="password" name="password" placeholder="password" class="form-control @error('password') is-invalid @enderror" required value="{{ old('password') }}">
+                    <input type="password" id="password" name="password" placeholder="password" class="form-control @error('password') is-invalid @enderror" required>
                     <label for="password">Password</label>
                         @error('password')
-                            <div class="ivalid-feedback">
+                            <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                         @enderror

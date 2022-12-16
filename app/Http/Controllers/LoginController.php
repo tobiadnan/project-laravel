@@ -27,4 +27,14 @@ class LoginController extends Controller
         }
         return back()->with('loginError', 'Failed to login. Please check your username and password again');
     }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+
+        return redirect('/');
+    }
 }
