@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\DashboardBlogController;
 use App\Http\Controllers\DashboardController;
 use App\Models\Blog;
 use Faker\Provider\Lorem;
@@ -74,3 +75,6 @@ Route::post('/registration', [RegistrationController::class, 'store']);
 Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->middleware('auth');
+
+//menjalankan resource
+Route::resource('/dashboard/blogs', DashboardBlogController::class)->middleware('auth');
