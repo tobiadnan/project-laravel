@@ -71,4 +71,6 @@ Route::post('/logout', [LoginController::class, 'logout']);
 // route for sending registration data
 Route::post('/registration', [RegistrationController::class, 'store']);
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->middleware('auth');
