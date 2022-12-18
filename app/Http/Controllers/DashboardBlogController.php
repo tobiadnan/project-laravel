@@ -15,7 +15,7 @@ class DashboardBlogController extends Controller
     public function index()
     {
         return view('dashboard.blog.index', [
-            'posts' => Blog::where('iser_id', auth()->user()->id)->get()
+            'posts' => Blog::where('user_id', auth()->user()->id)->get()
         ]);
     }
 
