@@ -12,11 +12,6 @@ class Blog extends Model
     protected $guarded = ['id'];
     protected $with = ['user', 'category'];
 
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -48,5 +43,11 @@ class Blog extends Model
                 fn ($query) => $query->where('id', $user)
             )
         );
+    }
+
+    // menampilkan blog per artikel on dboard
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

@@ -1,4 +1,5 @@
 @extends('dashboard.layout.main')
+
 @section('container')
     <div class="container">
         <div class="row my-3">
@@ -14,7 +15,7 @@
                 <img src="https://source.unsplash.com/1200x400?{{ $blog->category->name }}" alt="{{ $blog->category->name }}" class="img-fluid">
 
                 <article class="my-3 fs-5">
-                    {{ !!$blog->body!! }}
+                  {!! $blog->body !!}
                 </article>
 
                 <a href="/blog">Back</a>

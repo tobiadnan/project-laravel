@@ -17,18 +17,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(4)->create();
+        User::factory(3)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
 
-        // User::create([
-        //     'name'=>'Toby',
-        //     'email'=>'tobi.ti2019@mhs.rosma.ac.id',
-        //     'password'=>bcrypt('12345')
-        // ]);
+        User::create([
+            'name' => 'Toby',
+            'email' => 'tobi@gmail.com',
+            'password' => bcrypt('12345')
+        ]);
         // User::create([
         //     'name'=>'Lala',
         //     'email'=>'lala.ti2019@mhs.rosma.ac.id',
@@ -36,16 +36,16 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         Category::create([
-            'name'=>'Data Science',
-            'slug'=>'datascience'
+            'name' => 'Data Science',
+            'slug' => 'datascience'
         ]);
         Category::create([
-            'name'=>'Mechine Learning',
-            'slug'=>'ml'
+            'name' => 'Mechine Learning',
+            'slug' => 'ml'
         ]);
         Category::create([
-            'name'=>'Front-End',
-            'slug'=>'frontend'
+            'name' => 'Front-End',
+            'slug' => 'frontend'
         ]);
 
         //create with factory
